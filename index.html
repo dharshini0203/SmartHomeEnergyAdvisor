@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Home Energy Advisor</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        ⚡ EnergyWise
+    </div>
+
+    <p>Smart Home Energy Saving Advisor</p>
+
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>Smart Home Energy Saving Advisor</h1>
+
+        <p>
+            Monitor your household electricity usage,
+            estimate your energy cost and discover ways
+            to save electricity.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>⚡ Enter Electricity Tariff</h2>
+
+        <label>
+            Electricity Cost per kWh (₹)
+        </label>
+
+        <input
+            type="number"
+            id="tariff"
+            value="8"
+            min="0"
+            step="0.1"
+        >
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>🏠 Appliance Details</h2>
+
+        <div id="applianceContainer">
+
+            <div class="appliance-row">
+
+                <input
+                    type="text"
+                    placeholder="Appliance Name"
+                    class="appliance"
+                >
+
+                <input
+                    type="number"
+                    placeholder="Power (W)"
+                    class="power"
+                >
+
+                <input
+                    type="number"
+                    placeholder="Hours/day"
+                    class="hours"
+                >
+
+                <input
+                    type="number"
+                    placeholder="Days"
+                    class="days"
+                    value="30"
+                >
+
+                <button
+                    type="button"
+                    class="removeBtn"
+                    onclick="removeRow(this)">
+                    ✕
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="buttons">
+
+            <button
+                type="button"
+                onclick="addAppliance()">
+                + Add Appliance
+            </button>
+
+            <button
+                type="button"
+                class="calculateBtn"
+                onclick="calculateEnergy()">
+                Calculate Energy
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section
+        id="results"
+        class="results">
+
+        <div class="result-card">
+
+            <h3>⚡ Total Energy</h3>
+
+            <p id="totalUnits">
+                0 kWh
+            </p>
+
+        </div>
+
+
+        <div class="result-card">
+
+            <h3>💰 Estimated Cost</h3>
+
+            <p id="totalCost">
+                ₹0
+            </p>
+
+        </div>
+
+
+        <div class="result-card">
+
+            <h3>🔥 Highest Consumer</h3>
+
+            <p id="highestConsumer">
+                -
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📊 Energy Consumption Chart</h2>
+
+        <canvas id="energyChart"></canvas>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>💡 Energy Saving Recommendations</h2>
+
+        <div id="recommendations">
+
+            <p>
+                Enter appliance details and calculate
+                your energy consumption.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Smart Home Energy Saving Advisor
+    </p>
+
+    <p>
+        Cloud Computing Innovative Component
+    </p>
+
+</footer>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
